@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension id="mustache" status="released" xmlns="http://symphony-cms.com/schemas/extension/1.0">
+	<name>Mustache templates</name>
+	<description>Symphony pages can be rendered with Mustache rather than XSLT.</description>
+	<authors>
+		<author>
+			<name github="g-wilson" symphony="gwilson">George Wilson</name>
+			<website>http://www.carthrottle.com/</website>
+		</author>
+	</authors>
+	<releases>
+		<release version="1.0" date="2013-12-19" min="2.3.3" />
+	</releases>
+</extension>
