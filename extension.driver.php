@@ -1,6 +1,5 @@
 <?php
 
-if (!class_exists('XMLToArray')) require_once(EXTENSIONS . '/mustache/lib/class.xmltoarray.php');
 require_once(EXTENSIONS . '/mustache/lib/Mustache/Autoloader.php');
 Mustache_Autoloader::register();
 
@@ -57,7 +56,8 @@ class extension_Mustache extends Extension {
 
     // Convert the XML to an array
     $xml = $context['xml'];
-    $pageData = XMLToArray::convert($xml);
+    $json = json_encode(simplexml_load_string($xml), JSON_PRETTY_PRINT);
+    $pageData = json_decode($json, true);
 
     // Mustache config
     $config = array(
@@ -81,7 +81,7 @@ class extension_Mustache extends Extension {
     self::$output = $tpl->render($pageData);
 
     // Put the page data as json in place of the xml so the debug devkit can see it
-    $context['xml'] = json_encode($pageData, JSON_PRETTY_PRINT);
+    $context['xml'] = $json;
   }
 
   /**
