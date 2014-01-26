@@ -24,7 +24,7 @@ class extension_Mustache extends Extension {
    * Installation
    */
   public function install() {
-    $cachedir = WORKSPACE . '/manifest/cache/mustache';
+    $cachedir = MANIFEST . '/cache/mustache';
     if (!is_dir($cachedir)) mkdir($cachedir, 0755, true);
     $templatedir = WORKSPACE . '/mustache/';
     if (!is_dir($templatedir)) {
@@ -62,7 +62,7 @@ class extension_Mustache extends Extension {
     // Mustache config
     $config = array(
       'template_class_prefix' => '__SymphonyMustache_',
-      'cache' => WORKSPACE . '/manifest/cache/mustache',
+      'cache' => MANIFEST . '/cache/mustache',
       'cache_file_mode' => 0755,
       'cache_lambda_templates' => true,
       'loader' => new Mustache_Loader_FilesystemLoader(WORKSPACE . '/mustache/pages'),
